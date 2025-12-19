@@ -1,0 +1,380 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.chat-container {
+    width: 80%;
+    height: 90vh;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    color: #0f0;
+    text-shadow: 0 0 10px #0f0;
+}
+
+.chat-header h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.chat-header p {
+    margin: 0;
+    text-align: center;
+}
+
+.chat-main {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.online-users {
+    width: 200px;
+    border-left: 1px solid rgba(0, 255, 0, 0.3);
+    padding: 1rem;
+    color: #0f0;
+    overflow-y: auto;
+}
+
+.online-users h3 {
+    margin-top: 0;
+}
+
+#users-list {
+    list-style: none;
+    padding: 0;
+}
+
+#users-list li {
+    cursor: pointer;
+    padding: 5px;
+}
+
+#users-list li:hover {
+    background: #0f0;
+    color: #000;
+}
+
+.chat-form {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+#message-input {
+    flex-grow: 1;
+    background: transparent;
+    border: 1px solid #0f0;
+    color: #0f0;
+    padding: 0.5rem;
+    outline: none;
+}
+
+.chat-form button {
+    background: transparent;
+    border: 1px solid #0f0;
+    color: #0f0;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-form button:hover {
+    background: #0f0;
+    color: #000;
+}
+
+.message {
+    margin-bottom: 1rem;
+    color: #0f0;
+}
+
+.message .user {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.message .text {
+    word-break: break-all;
+}
+
+
+.user-joined, .user-left {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Login Page Styles */
+.login-container {
+    z-index: 2;
+    position: relative;
+}
+
+.login-form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    border-radius: 10px;
+    min-width: 300px;
+    backdrop-filter: blur(5px);
+}
+
+.login-form h2 {
+    color: #0f0;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px #0f0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #0f0;
+    color: #0f0;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #0f0;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -20px;
+    font-size: 12px;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid #0f0;
+    color: #0f0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-form button:hover {
+    background: #0f0;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.login-form button:active {
+    transform: translateY(0);
+}
+
+/* Tab Styles */
+.tabs {
+    display: flex;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.tab-button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #0f0;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-button.active {
+    border-bottom: 2px solid #0f0;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.tab-button:hover {
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+/* Logout Button Styles */
+.logout-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0f0;
+    color: #0f0;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.logout-btn:hover {
+    border-color: #ff0000;
+    box-shadow: 
+        0 0 10px rgba(255, 0, 0, 0.8),
+        0 0 20px rgba(255, 0, 0, 0.5),
+        inset 0 0 10px rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+    transform: translateY(-2px);
+}
+
+.logout-btn:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 0 5px rgba(255, 0, 0, 0.8),
+        inset 0 0 5px rgba(255, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chat-container {
+        width: 95%;
+        height: 95vh;
+    }
+    
+    .chat-main {
+        flex-direction: column;
+    }
+    
+    .online-users {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid rgba(0, 255, 0, 0.3);
+        max-height: 150px;
+    }
+    
+    .login-form {
+        padding: 1.5rem;
+        margin: 1rem;
+        min-width: auto;
+        width: calc(100% - 2rem);
+    }
+    
+    .chat-form {
+        padding: 0.5rem;
+    }
+    
+    .chat-form button {
+        margin-left: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .logout-btn {
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+    
+    .chat-header {
+        padding: 0.5rem;
+    }
+    
+    .chat-messages {
+        padding: 0.5rem;
+    }
+    
+    .login-form {
+        padding: 1rem;
+    }
+    
+    .input-group {
+        margin-bottom: 1rem;
+    }
+    
+    .logout-btn {
+        bottom: 8px;
+        left: 8px;
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
