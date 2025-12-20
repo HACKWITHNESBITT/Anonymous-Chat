@@ -5,6 +5,11 @@
 ### Project Description
 This is a **real-time anonymous chat application** built with Node.js, Express, and Socket.IO. Users can create accounts, login, and communicate with other online users through both public and private messages.
 
+
+###Live Demo 
+
+https://anonymous-chat-1-9pg2.onrender.com
+
 ### How Users Communicate
 
 #### 1. User Authentication Flow
